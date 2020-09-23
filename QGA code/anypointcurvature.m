@@ -1,0 +1,9 @@
+function kxy=anypointcurvature(m,q,a,x,l,y,L,r1,r2,r,fai)
+w0=m*q*cos(a/180*pi);
+io=yslant(m,q,a,x,r,l);
+ioy=ioyslant(m,q,a,y,r,r1,r2,L);
+ko=ycurvature(m,q,a,x,r,l);
+koy=koycurvature(m,q,a,y,r1,r2,L);
+wo=ysubsidence(m,q,a,x,r,l);
+woy=woysubsidence(m,q,a,y,r1,r2,L);
+kxy=1/w0*(ko.*woy.*(cos(fai*pi/180)).^2+koy.*wo.*(sin(fai*pi/180)).^2+io.*ioy.*sin(2*fai*pi/180));
